@@ -1,0 +1,37 @@
+/* Style the gallery grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+  }
+  
+  /* Hide scrollbar for cleaner look */
+  .photo-grid::-webkit-scrollbar {
+    width: 6px;
+  }
+  .photo-grid::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 3px;
+  }
+  .photo-grid::-webkit-scrollbar-track {
+    background: #f4f4f4;
+  }
+  
+  /* Style each photo card */
+  .photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+  }
+  .photo-card img:hover {
+    transform: scale(1.05);
+  }
+  
