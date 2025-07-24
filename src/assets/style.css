@@ -1,37 +1,104 @@
-/* Style the gallery grid */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #fafafa;
+}
+
+/* Header & Footer */
+header, footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Main container */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Photo Grid */
 .photo-grid {
-    display: grid;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Always 3 columns on large screens */
+  gap: 5px; /* Reduce gap for IG feel */
+  padding: 10px;
+}
+
+/* Individual Photo Item */
+.photo-item {
+  position: relative;
+}
+
+.photo-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Makes square */
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.photo-item img:hover {
+  transform: scale(1.05);
+  border-color: #020102; /* Pink border on hover */
+}
+
+/* Overlay for likes/comments */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 0 8px 8px;
+}
+
+.photo-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#lightbox.active {
+  display: flex;
+}
+
+#lightbox img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .photo-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-    max-height: 80vh;
-    overflow-y: auto;
-    padding-right: 10px;
-    scroll-behavior: smooth;
   }
-  
-  /* Hide scrollbar for cleaner look */
-  .photo-grid::-webkit-scrollbar {
-    width: 6px;
-  }
-  .photo-grid::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 3px;
-  }
-  .photo-grid::-webkit-scrollbar-track {
-    background: #f4f4f4;
-  }
-  
-  /* Style each photo card */
-  .photo-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    transition: transform 0.2s ease;
-  }
-  .photo-card img:hover {
-    transform: scale(1.05);
-  }
-  
+}
+

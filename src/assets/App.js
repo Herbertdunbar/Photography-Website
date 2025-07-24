@@ -1,26 +1,29 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import HomePage from './pages/HomePage';
-import GalleryPage from './pages/GalleryPage';
-import AboutPage from './pages/AboutPage';
+// Select all images in the photo grid
+const images = document.querySelectorAll('.photo-grid img');
 
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/about" element={<AboutPage />} />
-        </Routes>
-      </main>
-    </Router>
-  );
-}
+// Create a lightbox container
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+document.body.appendChild(lightbox);
 
-export default App;
+// Add click event for each image
+images.forEach(image => {
+  image.addEventListener('click', () => {
+    lightbox.classList.add('active');
+    const img = document.createElement('img');
+    img.src = image.src;
+    while (lightbox.firstChild) {
+      lightbox.removeChild(lightbox.firstChild);
+    }
+    lightbox.appendChild(img);
+  });
+});
+
+// Close lightbox on click
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+});
+
 
 
 
