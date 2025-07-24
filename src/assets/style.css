@@ -15,8 +15,10 @@ main {
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Always 3 columns on large screens */
-  gap: 5px; /* Reduce gap for IG feel */
-  padding: 10px;
+  gap: 10px; /* Reduce gap for IG feel */
+  padding: 20px;
+  max-width: 900px; /* Restricts total grid width */
+  margin: 0 auto; /* Center the grid */
 }
 
 /* Individual Photo Item */
@@ -104,6 +106,22 @@ main {
   height: 60px; /* Fixed height */
   z-index: 1000;
   border-bottom: 4px solid #F18F01; /* Orange accent line */
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F18F01; /* Orange for logo */
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Even spacing between links */
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li a {
