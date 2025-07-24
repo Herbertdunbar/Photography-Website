@@ -5,19 +5,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #fafafa;
-}
-
-/* Header & Footer */
-header, footer {
-  background: #333;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-}
-
 /* Main container */
 main {
   max-width: 1200px;
@@ -42,13 +29,13 @@ main {
   aspect-ratio: 1 / 1; /* Makes square */
   object-fit: cover;
   border-radius: 8px;
-  border: 2px solid #ddd;
+  border: 4px solid #9DD9D2;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .photo-item img:hover {
   transform: scale(1.05);
-  border-color: #020102; /* Pink border on hover */
+  border-color: #BA7BA1; /* Pink border on hover */
 }
 
 /* Overlay for likes/comments */
@@ -101,4 +88,76 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #227C9D; /* Bold Blue */
+  color: white;
+  padding: 10px 20px; /* Smaller padding */
+  height: 60px; /* Fixed height */
+  z-index: 1000;
+  border-bottom: 4px solid #F18F01; /* Orange accent line */
+}
+
+.nav-links li a {
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background 0.3s ease
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a:hover {
+  background: #F18F01; /* Orange hover */
+  color: #684E32; /* Warm brown text */
+}
+
+/* Body */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #BA7BA1 0%, #9DD9D2 40%, #F18F01 75%, #227C9D 100%);
+  background-attachment: fixed; /* Stays still when scrolling */
+  color: #684E32;
+  padding-top: 60px; /* Adjust for smaller navbar */
+}
+
+/* Footer  */
+footer {
+  text-align: center;
+  background: #227C9D; /* Same blue as navbar for consistency */
+  color: white;
+  padding: 15px;
+  font-size: 0.9rem;
+  border-top: 4px solid #F18F01; /* Orange accent */
+}
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Push footer to the bottom */
+}
+
 
