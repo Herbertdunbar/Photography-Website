@@ -127,7 +127,7 @@ main {
 .nav-links li a {
   font-size: 1rem;
   text-decoration: none;
-  color: white;
+  color:#F18F01;
   font-weight: 600;
   padding: 8px 12px;
   border-radius: 4px;
@@ -159,7 +159,7 @@ body {
 footer {
   text-align: center;
   background: #227C9D; /* Same blue as navbar for consistency */
-  color: white;
+  color:#F18F01;
   padding: 15px;
   font-size: 1rem;
   border-top: 4px solid #F18F01; /* Orange accent */
@@ -181,3 +181,73 @@ main {
 }
 
 
+/* Contact Section */
+.contact-section {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8); /* Soft white overlay */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.contact-section h1 {
+  font-size: 2rem;
+  color: #227C9D; /* Blue heading */
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  margin-bottom: 20px;
+  color: #F18F01; /* Brown accent text */
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  color: #F18F01; /* Purple accent */
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #9DD9D2; /* Light teal border */
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #F18F01; /* Orange on focus */
+  box-shadow: 0 0 8px rgba(241,143,1,0.3);
+}
+
+/* Submit Button */
+.submit-btn {
+  background: #227C9D;
+  color: #F18F01;
+  font-size: 1rem;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #F18F01; /* Orange on hover */
+}
