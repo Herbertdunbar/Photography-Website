@@ -161,8 +161,9 @@ footer {
   background: #227C9D; /* Same blue as navbar for consistency */
   color: white;
   padding: 15px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   border-top: 4px solid #F18F01; /* Orange accent */
+  width: 100%;
 }
 html, body {
   height: 100%;
@@ -172,6 +173,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
