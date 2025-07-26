@@ -67,10 +67,11 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.9);
   display: none;
   align-items: center;
   justify-content: center;
+  flex-direction:column;
   z-index: 9999;
 }
 
@@ -78,10 +79,46 @@ main {
   display: flex;
 }
 
-#lightbox img {
-  max-width: 90%;
+#lightbox img.lightbox-img {
+  max-width: 85%;
   max-height: 80%;
-  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow:0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+/* Close Button */
+#lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Navigation Arrows */
+.lightbox-controls {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.lightbox-controls .prev,
+.lightbox-controls .next {
+  color: #F18F01; /* Orange accent */
+  font-size: 3rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.lightbox-controls .prev:hover,
+.lightbox-controls .next:hover {
+  color: #9DD9D2; /* Light teal hover */
 }
 
 /* Responsive tweaks */
@@ -200,7 +237,7 @@ main {
 
 .contact-section p {
   margin-bottom: 20px;
-  color: #F18F01; /* Brown accent text */
+  color: #684E32; /* Brown accent text */
 }
 
 /* Contact Form */
@@ -216,7 +253,7 @@ main {
 
 label {
   font-weight: bold;
-  color: #F18F01; /* Purple accent */
+  color: #BA7BA1; /* Purple accent */
   display: block;
   margin-bottom: 5px;
 }
