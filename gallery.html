@@ -21,46 +21,150 @@
 
 <!-- Main Content -->
 <main>
-  <section class="photo-grid">
-    <div class="photo-item">
-      <img src="src/assets/images/gallery/date.JPG" alt="Photo 1" />
-      <div class="overlay">❤️ 200 &nbsp; 💬 80</div>
-    </div>
-    <div class="photo-item">
-      <img src="src/assets/images/hero/flower.JPG" alt="Photo 2" />
-      <div class="overlay">❤️ 120 &nbsp; 💬 45</div>
-    </div>
-    <div class="photo-item">
-      <img src="src/assets/images/misc/train.JPG" alt="Photo 3" />
-      <div class="overlay">❤️ 98 &nbsp; 💬 30</div>
-    </div>
-    <div class="photo-item">
-      <img src="src/assets/images/misc/fair.JPEG" alt="Photo 4" />
-      <div class="overlay">❤️ 150 &nbsp; 💬 60</div>
-    </div>
-    <div class="photo-item">
-      <img src="src/assets/images/gallery/colordoor.JPG" alt="Photo 5" />
-      <div class="overlay">❤️ 50 &nbsp; 💬 10</div>
-    </div>
-    <div class="photo-item">
-      <img src="src/assets/images/gallery/glasswall.JPG" alt="Photo 6" />
-      <div class="overlay">❤️ 80 &nbsp; 💬 60</div>
-    </div>
-    <div class="photo-item">
-        <img src="src/assets/images/gallery/sunset.JPEG" alt="Photo 7" />
-        <div class="overlay">❤️ 80 &nbsp; 💬 60</div>
-    </div>
-    <div class="photo-item">
-      <img src="src/assets/images/profile/lawn.JPG" alt="Photo 8" />
-      <div class="overlay">❤️ 80 &nbsp; 💬 60</div>
-  </div>
+<section class="photo-grid">
   <div class="photo-item">
-    <img src="src/assets/images/misc/zaza.JPG" alt="Photo 7" />
-    <div class="overlay">❤️ 80 &nbsp; 💬 60</div>
-</div> <div class="photo-item">
-  <img src="src/assets/images/misc/door.JPG" alt="Photo 7" />
-  <div class="overlay">❤️ 80 &nbsp; 💬 60</div>
-</div>
+    <img src="src/assets/images/gallery/date.JPG" alt="Photo 1" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">200</span></span>
+      <span class="comment-btn">💬 80</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/hero/flower.JPG" alt="Photo 2" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">120</span></span>
+      <span class="comment-btn">💬 45</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/misc/train.JPG" alt="Photo 3" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/misc/fair.JPEG" alt="Photo 4" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+  
+  <div class="photo-item">
+    <img src="src/assets/images/gallery/colordoor.JPG" alt="Photo 5" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/gallery/sunset.JPEG" alt="Photo 6" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/profile/lawn.JPG" alt="Photo 7" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/misc/zaza.JPG" alt="Photo 8" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/misc/door.JPG" alt="Photo 9" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/gallery/sunset2.JPG" alt="Photo 10" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
+  <div class="photo-item">
+    <img src="src/assets/images/gallery/sunset3.JPEG" alt="Photo 11" />
+    <div class="photo-actions">
+      <span class="like-btn">❤️ <span class="like-count">98</span></span>
+      <span class="comment-btn">💬 30</span>
+    </div>
+    <div class="comment-section">
+      <div class="comments-list"></div>
+      <textarea class="comment-input" placeholder="Write a comment..."></textarea>
+      <button class="send-comment">Send</button>
+    </div>
+  </div>
+
     <!-- Add more photos here -->
   </section>
 </main>
@@ -81,5 +185,17 @@
     </footer>
   
     <script src="src/assets/App.js"></script>
+
+    <!-- Comment Modal -->
+<div id="commentModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Add a Comment</h2>
+    <img id="commentImage" src="" alt="Selected Image" style="width:100%; border-radius:10px; margin-bottom:10px;">
+    <textarea id="commentText" placeholder="Write your comment..." rows="4"></textarea>
+    <button id="sendComment">Send</button>
+  </div>
+</div>
+
   </body>
   </html>
