@@ -1,121 +1,114 @@
-// Lightbox with Navigation //
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.querySelector('.lightbox-img');
-const closeBtn = document.querySelector('.close');
-const nextBtn = document.querySelector('.next');
-const prevBtn = document.querySelector('.prev');
-const images = document.querySelectorAll('.photo-grid img');
+document.addEventListener("DOMContentLoaded", () => {
+  const photoItems = document.querySelectorAll(".photo-item");
+  const modal = document.getElementById("photoModal");
+  const modalImg = document.getElementById("modalImage");
+  const modalLikeBtn = document.getElementById("modalLikeBtn");
+  const modalLikeCount = document.getElementById("modalLikeCount");
+  const modalCommentToggleBtn = document.getElementById("modalCommentToggleBtn");
+  const modalComments = document.getElementById("modalComments");
+  const modalCommentInput = document.getElementById("modalCommentInput");
+  const modalCommentText = document.getElementById("modalCommentText");
+  const modalCommentAddBtn = document.getElementById("modalCommentAddBtn");
+  const modalPrev = document.getElementById("modalPrev");
+  const modalNext = document.getElementById("modalNext");
 
-let currentIndex = 0;
+  let currentIndex = 0;
+  let photoData = [];
 
-// Open lightbox when an image is clicked //
-images.forEach((img, index) => {
-  img.addEventListener('click', () => {
+  // Build photo data
+  photoItems.forEach((item, index) => {
+    const img = item.querySelector("img").src;
+    const likeCount = parseInt(item.dataset.likes || 0);
+    const comments = [];
+    const liked = false;
+
+    photoData.push({ img, likes: likeCount, liked, comments, element: item });
+
+    // Open modal on click
+    item.querySelector("img").addEventListener("click", () => openModal(index));
+  });
+
+  /** Open Modal **/
+  function openModal(index) {
     currentIndex = index;
-    showImage();
-    lightbox.classList.add('active');
-  });
-});
-
-// Show current image in lightbox //
-function showImage() {
-  lightboxImg.src = images[currentIndex].src;
-}
-
-// Close lightbox //
-closeBtn.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-});
-
-// Navigate images //
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % images.length;
-  showImage();
-});
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  showImage();
-});
-
-// Close on background click //
-lightbox.addEventListener('click', (e) => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove('active');
+    const data = photoData[index];
+    modalImg.src = data.img;
+    modalLikeCount.textContent = data.likes;
+    modalLikeBtn.classList.toggle("liked", data.liked);
+    renderModalComments(data.comments);
+    modal.classList.add("active");
+    showNavArrows();
   }
-});
 
-// Keyboard navigation //
-document.addEventListener('keydown', (e) => {
-  if (!lightbox.classList.contains('active')) return;
-  if (e.key === 'ArrowRight') nextBtn.click();
-  if (e.key === 'ArrowLeft') prevBtn.click();
-  if (e.key === 'Escape') lightbox.classList.remove('active');
-});
+  /** Close Modal **/
+  function closeModal() {
+    modal.classList.remove("active");
+    modalComments.style.display = "none";
+    modalCommentInput.style.display = "none";
+  }
 
-// Like Button Feature //
-const likeButtons = document.querySelectorAll('.like-btn');
-
-likeButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const countSpan = btn.querySelector('.like-count');
-    let count = parseInt(countSpan.textContent);
-
-    // Toggle like/unlike //
-    if (btn.classList.contains('liked')) {
-      btn.classList.remove('liked');
-      count--;
-    } else {
-      btn.classList.add('liked');
-      count++;
+  /** Show Nav Arrows **/
+  function showNavArrows() {
+    if (photoData.length > 1) {
+      modalPrev.style.display = "block";
+      modalNext.style.display = "block";
     }
-
-    countSpan.textContent = count;
-  });
-});
-
-// =====================
-// Comment Modal Feature
-// =====================
-const commentBtns = document.querySelectorAll('.comment-btn');
-const modal = document.getElementById('commentModal');
-const closeModal = document.querySelector('.close-modal');
-const commentImage = document.getElementById('commentImage');
-const commentText = document.getElementById('commentText');
-const sendComment = document.getElementById('sendComment');
-
-let selectedImage = '';
-
-// Open modal on comment button click
-commentBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const photo = btn.closest('.photo-item').querySelector('img').src;
-    selectedImage = photo;
-
-    commentImage.src = selectedImage;
-    modal.classList.add('active');
-  });
-});
-
-// Close modal (X button or outside click)
-closeModal.addEventListener('click', () => modal.classList.remove('active'));
-window.addEventListener('click', (e) => {
-  if (e.target === modal) modal.classList.remove('active');
-});
-
-// Handle comment submission
-sendComment.addEventListener('click', () => {
-  const comment = commentText.value.trim();
-  if (comment === '') {
-    alert('Please write a comment.');
-    return;
   }
 
-  // Future: Send to email with EmailJS
-  alert(`Comment Sent!\nImage: ${selectedImage}\nComment: ${comment}`);
-  
-  // Reset and close modal
-  commentText.value = '';
-  modal.classList.remove('active');
-});
+  /** Navigation **/
+  function navigate(dir) {
+    currentIndex = (currentIndex + dir + photoData.length) % photoData.length;
+    openModal(currentIndex);
+  }
 
+  /** Like Button **/
+  modalLikeBtn.addEventListener("click", () => {
+    const data = photoData[currentIndex];
+    data.liked = !data.liked;
+    data.likes += data.liked ? 1 : -1;
+    modalLikeBtn.classList.toggle("liked", data.liked);
+    modalLikeCount.textContent = data.likes;
+  });
+
+  /** Comments Toggle **/
+  modalCommentToggleBtn.addEventListener("click", () => {
+    const show = modalComments.style.display === "block";
+    modalComments.style.display = show ? "none" : "block";
+    modalCommentInput.style.display = show ? "none" : "flex";
+  });
+
+  /** Add Comment **/
+  modalCommentAddBtn.addEventListener("click", () => {
+    if (modalCommentText.value.trim()) {
+      photoData[currentIndex].comments.push(modalCommentText.value.trim());
+      modalCommentText.value = "";
+      renderModalComments(photoData[currentIndex].comments);
+    }
+  });
+
+  function renderModalComments(comments) {
+    modalComments.innerHTML = comments.map(c => `<p>• ${c}</p>`).join("");
+  }
+
+  /** Click Outside to Close **/
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  /** Navigation Buttons **/
+  modalPrev.addEventListener("click", () => navigate(-1));
+  modalNext.addEventListener("click", () => navigate(1));
+
+  /** Keyboard Support **/
+  document.addEventListener("keydown", (e) => {
+    if (!modal.classList.contains("active")) return;
+
+    if (e.key === "Escape") {
+      closeModal();
+    } else if (e.key === "ArrowLeft") {
+      navigate(-1);
+    } else if (e.key === "ArrowRight") {
+      navigate(1);
+    }
+  });
+});
