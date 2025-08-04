@@ -1,4 +1,103 @@
 /* Reset */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+/* Full-screen section */
+.contact-section {
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('your-background-image.jpg') no-repeat center center/cover; 
+}
+
+/* Contact form container */
+.contact-container {
+  max-width: 600px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.85); /* Glass effect */
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.contact-container h1 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-container p {
+  color: #555;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+/* Form styling */
+.contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #F18F01;
+  outline: none;
+  box-shadow: 0 0 8px rgba(241, 143, 1, 0.3);
+}
+
+/* Button */
+.submit-btn {
+  width: 100%;
+  background: #F18F01;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #d87d00;
+  transform: translateY(-2px);
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 20px;
+  }
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +125,16 @@ main {
 }
 
 /* Navbar */
+
+header.navbar {
+  font-family: 'Montserrat', sans-serif;
+}
+
+header.navbar .logo,
+header.navbar .nav-links li a {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .navbar {
   width: 100%;
   position: fixed;
@@ -84,29 +193,30 @@ footer {
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  padding: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
 }
 
 .photo-item {
   position: relative;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 .photo-item img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 8px;
-  border: 4px solid #9DD9D2;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  aspect-ratio: 1 / 1; /* Makes all images square */
+  object-fit: cover; /* Prevent distortion */
+  border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .photo-item img:hover {
   transform: scale(1.05);
   border-color: #BA7BA1;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Photo Actions */
@@ -193,44 +303,46 @@ footer {
   display: none;
   position: fixed;
   z-index: 10000;
-  left: 0;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.95); /* Dark black background for zoom */
+  background: rgba(0, 0, 0, 0.95);
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 20px;
-  overflow: hidden; /* Prevent scroll behind modal */
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .modal.active {
   display: flex;
-  overflow: hidden;
+  display: flex;
+  opacity: 1;
+  animation: fadeIn 0.4s ease;
 }
 
-/* Modal Content */
+/* Modal Content */ 
 .modal-content {
-  background: #000; /* Black container */
+  background: #000;
   padding: 20px;
   border-radius: 12px;
-  width: 90%;
   max-width: 600px;
+  width: 90%;
   text-align: center;
   position: relative;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
-  max-height: 85vh;
-  overflow-y: auto; /* Scroll if content exceeds modal height */
+  transform: translateY(20px);
+  animation: slideUp 0.4s ease;
 }
 
 .modal-content img {
   max-width: 100%;
   max-height: 60vh;
   border-radius: 8px;
-  object-fit: contain;
   margin-bottom: 15px;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3); /* Subtle glow */
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
 /* Modal Actions (Like & Comment Buttons) */
@@ -238,17 +350,15 @@ footer {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .modal-actions button {
   border: none;
   background: transparent;
+  color: #F18F01;
   cursor: pointer;
-  font-size: 1.4rem;
-  color: #F18F01; /* Orange for like/comment */
-  transition: opacity 0.3s ease;
-  user-select: none;
+  font-size: 1.5rem;
 }
 
 .modal-actions button:hover {
@@ -265,7 +375,7 @@ footer {
   max-height: 150px;
   overflow-y: auto;
   text-align: left;
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: #fff; /* White text for comments on black */
   border-top: 1px solid #444;
   padding: 10px;
@@ -284,12 +394,10 @@ footer {
 .modal-comment-input textarea {
   width: 100%;
   padding: 8px;
-  border: 2px solid #9DD9D2;
   border-radius: 6px;
   font-size: 1rem;
-  resize: vertical;
-  background: #fff;
-  color: #000;
+  border: 2px solid #9DD9D2;
+
 }
 
 .modal-comment-input button {
@@ -300,7 +408,6 @@ footer {
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .modal-comment-input button:hover {
@@ -309,8 +416,8 @@ footer {
 
 /* Navigation Arrows - Hidden by Default */
 .modal-nav {
-  display: none; /* Hide by default */
-  position: fixed; /* Fixed to viewport */
+  display: none;
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   font-size: 3rem;
@@ -318,10 +425,6 @@ footer {
   cursor: pointer;
   user-select: none;
   padding: 10px;
-  z-index: 10001;
-  background: rgba(0,0,0,0.3);
-  border-radius: 50%;
-  transition: background 0.3s ease;
 }
 
 .modal-nav:hover {
@@ -342,9 +445,19 @@ footer {
   right: 20px;
 }
 
+.modal-nav:hover {
+  opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   .photo-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 20px;
   }
 }
