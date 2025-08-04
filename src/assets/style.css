@@ -19,24 +19,25 @@ body {
 .contact-container {
   max-width: 600px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.85); /* Glass effect */
-  backdrop-filter: blur(10px);
-  padding: 30px;
+  background: solid #F18F01; /* Glass effect */
+  backdrop-filter: blur(20px);
+  padding: 50px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .contact-container h1 {
-  margin-bottom: 10px;
+  margin: 20px;
   color: #333;
 }
 
 .contact-container p {
   color: #555;
-  margin-bottom: 30px;
-  font-size: 1rem;
+  margin-top: 5px;
+  font-size: 1.5rem;
 }
 
 /* Form styling */
@@ -74,7 +75,7 @@ body {
 .submit-btn {
   width: 100%;
   background: #F18F01;
-  color: white;
+  color: rgb(9, 9, 9);
   font-size: 1.1rem;
   font-weight: bold;
   padding: 14px;
@@ -460,4 +461,33 @@ footer {
   .contact-container {
     padding: 20px;
   }
+}
+
+/* Shared gallery styling for index and gallery pages */
+.photo-grid,
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3,1fr); /* Smaller min size */
+  gap: 10px;
+  padding: 15px;
+  justify-content: center;
+}
+
+/* Images for both pages */
+.photo-grid img,
+.gallery img {
+  width: 100%;
+  max-width: 220px; /* Limit image size */
+  height: auto;
+  aspect-ratio: 1 / 1; /* Square images for consistency */
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover,
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
