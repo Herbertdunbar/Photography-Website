@@ -2,6 +2,11 @@
 h1 {
   font-size: 2rem;
   margin-top: 10px;
+  color: #684E32;
+}
+
+p {
+  color: #684E32;
 }
 
 img {
@@ -55,11 +60,11 @@ body {
 
 .contact-container h1 {
   margin: 20px;
-  color: #333;
+  color:  #F18F01;
 }
 
 .contact-container p {
-  color: #555;
+  color: #684E32;
   margin-top: 5px;
   font-size: 1.5rem;
 }
@@ -75,7 +80,7 @@ body {
 .contact-form label {
   font-weight: 600;
   margin-bottom: 8px;
-  color: #333;
+  color:#684E32;
 }
 
 .contact-form input,
@@ -217,13 +222,35 @@ header.navbar .nav-links li a {
 
 /* Footer */
 footer {
+  background: #227C9D; /* Dark background */
   text-align: center;
-  background: #227C9D;
-  color: #F18F01;
-  padding: 15px;
-  font-size: 1rem;
-  border-top: 4px solid #F18F01;
+  padding: 15px 0;
+  color: #fff;
 }
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #9146ff; /* Twitch purple */
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #b580ff; /* Lighter purple on hover */
+}
+
+.twitch-icon {
+  width: 24px;
+  height: 24px;
+}
+
 
 /* Photo Grid */
 .photo-grid {
