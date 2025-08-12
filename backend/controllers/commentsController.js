@@ -1,21 +1,25 @@
-import { incrementLike, fetchLikes } from "../models/likesModel.js";
+// backend/controllers/commentsController.js
+import { addComment, fetchComments } from "../models/commentsModel.js";
 
-export async function likePhoto(req, res) {
+export async function addCommentHandler(req, res) {
   const { photoId } = req.params;
+  const { text } = req.body;
   try {
-    await incrementLike(photoId);
-    res.json({ message: "Photo liked!" });
+    await addComment(photoId, text);
+    res.json({ message: "Comment added!" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 }
 
-export async function getLikes(req, res) {
+export async function getCommentsHandler(req, res) {
   const { photoId } = req.params;
   try {
-    const likes = await fetchLikes(photoId);
-    res.json({ likes });
+    const comments = await fetchComments(photoId);
+    res.json(comments);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 }
+
+

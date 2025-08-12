@@ -1,6 +1,7 @@
 import pool from "../db.js";
 
 export async function incrementLike(photoId) {
+  // Insert new photo row or increment likes count if it exists
   return pool.query(
     `INSERT INTO photos (photo_id, likes) VALUES ($1, 1)
      ON CONFLICT (photo_id) DO UPDATE SET likes = photos.likes + 1`,
@@ -15,3 +16,4 @@ export async function fetchLikes(photoId) {
   );
   return result.rows[0]?.likes || 0;
 }
+
