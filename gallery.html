@@ -21,19 +21,19 @@
 
 <!-- Main Content -->
 <main>
-    <section class="photo-grid" id="photo-grid">
-      <div class="photo-item"><img src="src/assets/images/gallery/date.JPG" alt="Photo 1"></div>
-      <div class="photo-item"><img src="src/assets/images/hero/flower.JPG" alt="Photo 2"></div>
-      <div class="photo-item"><img src="src/assets/images/misc/train.JPG" alt="Photo 3"></div>
-      <div class="photo-item"><img src="src/assets/images/misc/fair.JPEG" alt="Photo 4"></div>
-      <div class="photo-item"><img src="src/assets/images/gallery/colordoor.JPG" alt="Photo 5"></div>
-      <div class="photo-item"><img src="src/assets/images/gallery/sunset.JPEG" alt="Photo 6"></div>
-      <div class="photo-item"><img src="src/assets/images/profile/lawn.JPG" alt="Photo 7"></div>
-      <div class="photo-item"><img src="src/assets/images/misc/zaza.JPG" alt="Photo 8"></div>
-      <div class="photo-item"><img src="src/assets/images/misc/door.JPG" alt="Photo 9"></div>
-      <div class="photo-item"><img src="src/assets/images/gallery/sunset2.JPG" alt="Photo 10"></div>
-      <div class="photo-item"><img src="src/assets/images/gallery/sunset3.JPEG" alt="Photo 11"></div>
-    </section>
+    <div class="photo-grid">
+      <div class="photo-item"><img src="src/assets/images/gallery/date.JPG" alt="Photo 1" data-id="photo1" /></div>
+      <div class="photo-item"><img src="src/assets/images/hero/flower.JPG" alt="Photo 2" data-id="photo2" /></div>
+      <div class="photo-item"><img src="src/assets/images/misc/train.JPG" alt="Photo 3" data-id="photo3" /></div>
+      <div class="photo-item"><img src="src/assets/images/misc/fair.JPEG" alt="Photo 4" data-id="photo4" /></div>
+      <div class="photo-item"><img src="src/assets/images/gallery/colordoor.JPG" alt="Photo 5" data-id="photo5" /></div>
+      <div class="photo-item"><img src="src/assets/images/gallery/sunset.JPEG" alt="Photo 6" data-id="photo6" /></div>
+      <div class="photo-item"><img src="src/assets/images/profile/lawn.JPG" alt="Photo 7" data-id="photo7" /></div>
+      <div class="photo-item"><img src="src/assets/images/misc/zaza.JPG" alt="Photo 8" data-id="photo8" /></div>
+      <div class="photo-item"><img src="src/assets/images/misc/door.JPG" alt="Photo 9" data-id="photo9" /></div>
+      <div class="photo-item"><img src="src/assets/images/gallery/sunset2.JPG" alt="Photo 10" data-id="photo10" /></div>
+      <div class="photo-item"><img src="src/assets/images/gallery/sunset3.JPEG" alt="Photo 11" data-id="photo11" /></div>
+    </div>
   
 </main>
 
@@ -58,8 +58,8 @@
       <button id="modalCommentToggleBtn">💬 Comments</button></div>
 
          <!-- Comments will appear here -->
-    <div class="modal-comments" id="modalComments"></div>
-    <div class="modal-comment-input" id="modalCommentInput">
+    <div class="modal-comments" id="modalComments" style="display:none;"></div>
+    <div class="modal-comment-input" id="modalCommentInput" style="display:none;">
       <textarea id="modalCommentText" placeholder="Write a comment..."></textarea>
       <button id="modalCommentAddBtn">Send</button>
     </div>
@@ -70,6 +70,6 @@
 <div class="modal-nav next" id="modalNext">&#10095;</div>
 </div>
 
-<script src="src/assets/App.js"></script>
+<script type="module" script src="src/assets/App.js"></script>
   </body>
   </html>
